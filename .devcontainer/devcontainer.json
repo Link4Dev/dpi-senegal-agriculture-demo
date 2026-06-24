@@ -2,7 +2,7 @@
   "name": "dpi-senegal-agriculture-demo",
   "dockerComposeFile": ["../docker-compose.yml"],
   "service": "openg2p",
-  "workspaceFolder": "/workspace",
+  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
   "forwardPorts": [8069, 8071], // Ports par défaut d'Odoo / OpenG2P
   "portsAttributes": {
     "8069": {
