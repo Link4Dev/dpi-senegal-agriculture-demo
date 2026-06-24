@@ -17,7 +17,9 @@ services:
 
   # --- Application Principale OpenG2P / Odoo ---
   openg2p:
-    image: openg2p/openg2p-framework:latest # Utilisation de l'image officielle OpenG2P
+    #: openg2p/openg2p-framework:latest # Utilisation de l'image officielle OpenG2P
+    ```yaml
+   image: odoo:16.0
     depends_on:
       - db
     ports:
