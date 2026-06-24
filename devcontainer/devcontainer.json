@@ -1,0 +1,14 @@
+{
+  "name": "dpi-senegal-agriculture-demo",
+  "dockerComposeFile": ["../docker-compose.yml"],
+  "service": "openg2p",
+  "workspaceFolder": "/workspace",
+  "forwardPorts": [8069, 8071], // Ports par défaut d'Odoo / OpenG2P
+  "portsAttributes": {
+    "8069": {
+      "label": "DPI Interface (Ministère)",
+      "onAutoForward": "openBrowser"
+    }
+  },
+  "postCreateCommand": "bash .devcontainer/post-create.sh"
+}
