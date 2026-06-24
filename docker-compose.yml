@@ -1,40 +1,20 @@
 version: '3.8'
 
 services:
-  # --- Base de données pour le registre ---
+  web:
+    image: odoo:16.0
+    ports:
+      - "8069:8069"
+    environment:
+      - HOST=db
+      - USER=odoo
+      - PASSWORD=odoo
+    depends_on:
+      - db
+
   db:
     image: postgres:15
     environment:
       - POSTGRES_DB=postgres
+      - POSTGRES_PASSWORD=odoo
       - POSTGRES_USER=odoo
-      - POSTGRES_PASSWORD=odoo_password_demo
-    volumes:
-      - openg2p-db-data:/var/lib/postgresql/data
-    restart: unless-stopped
-    # Dans Codespaces, on évite d'exposer inutilement les ports de la BD à l'extérieur
-    expose:
-      - "5432"
-
-  # --- Application Principale OpenG2P / Odoo ---
-  openg2p:
-    #: openg2p/openg2p-framework:latest # Utilisation de l'image officielle OpenG2P
-    ```yaml
-   image: odoo:16.0
-    depends_on:
-      - db
-    ports:
-      - "8069:8069"   # Interface Web principale d'Odoo
-      - "8071:8071"   # Port de chat / Livechat si nécessaire
-    environment:
-      - HOST=db
-      - USER=odoo
-      - PASSWORD=odoo_password_demo
-    volumes:
-      - openg2p-web-data:/var/lib/odoo
-      # Montage optionnel pour injecter vos modules ou scripts de configuration Sénégal
-      - ./data-seeds:/opt/odoo/data-seeds:ro
-    restart: unless-stopped
-
-volumes:
-  openg2p-db-data:
-  openg2p-web-data:
