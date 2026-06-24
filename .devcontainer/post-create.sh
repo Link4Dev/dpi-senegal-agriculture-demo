@@ -1,11 +1,20 @@
 #!/bin/bash
+
 echo "🇸🇳 Initialisation de la démo OpenG2P pour le Ministère de l'Agriculture..."
 
-# Attendre que le conteneur Odoo soit totalement opérationnel avant de lancer le script
-sleep 15 
+BASE_DIR="/workspaces/dpi-senegal-agriculture-demo"
+SCRIPT="$BASE_DIR/data-seeds/setup_demo.py"
 
-# Exécution du script d'injection des filières Riz & Arachide
-python3 /workspace/data-seeds/setup_demo.py &
+if [ ! -f "$SCRIPT" ]; then
+  echo "❌ Script introuvable : $SCRIPT"
+  exit 1
+fi
 
-echo "✅ Environnement configuré avec succès !"
-echo "👉 Ouvrez l'onglet 'Ports' et cliquez sur l'adresse locale du port 8069 pour accéder à l'interface."
+echo "⏳ Attente du démarrage des services..."
+sleep 20
+
+echo "🚀 Lancement du script d'initialisation..."
+python3 "$SCRIPT"
+
+echo "✅ Initialisation terminée"
+echo "👉 Ouvrez le port 8069 pour accéder à Odoo"
