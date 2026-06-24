@@ -1,5 +1,5 @@
 {
-  "name": "dpi-senegal-agriculture-demo",,
+  "name": "dpi-senegal-agriculture-demo",
   "dockerComposeFile": ["../docker-compose.yml"],
   "service": "openg2p",
   "workspaceFolder": "/workspace",
