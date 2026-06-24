@@ -1,0 +1,4 @@
+id,prenom,nom,telephone,region,filiere,surface_ha,statut_cooperative
+SEN-FARM-001,Amadou,Diop,+221771234567,Saint-Louis,RIZ,2.5,Membre SAED
+SEN-FARM-002,Fatou,Sarr,+221772345678,Kaolack,ARACHIDE,4.0,Coopérative Nioro
+SEN-FARM-003,Moussa,Baldé,+221773456789,Kolda,RIZ,1.2,Aménagement Anambé
