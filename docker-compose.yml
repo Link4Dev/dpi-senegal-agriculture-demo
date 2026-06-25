@@ -9,6 +9,11 @@ services:
       - HOST=db
       - USER=odoo
       - PASSWORD=odoo
+    # 1. On dit à Odoo d'aller chercher les modules dans le dossier partagé mnt/extra-addons
+    command: odoo --addons-path=/usr/lib/python3/dist-packages/odoo/addons,/mnt/extra-addons
+    # 2. On connecte le dossier de votre projet GitHub au conteneur Odoo
+    volumes:
+      - .:/mnt/extra-addons
     depends_on:
       - db
 
